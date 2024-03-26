@@ -52,6 +52,7 @@ fetch('https://topbingos.com.br/data.php')
 
     if(e.status == 3 || e.status == 4){
         fullsocket()
+        fetch("https://start.topbingos.com.br")
     }else{
         // Control.loading_off()
         div_invalid.removeAttribute('style')
