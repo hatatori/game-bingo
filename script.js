@@ -58,6 +58,7 @@ const Control = {
 
     sound_ball: false,
     status: 0,
+    called: true,
 
     music: {
         on(){
@@ -136,7 +137,12 @@ const Control = {
         if(this.status == 3){
             if(new Date(this.time.startAt) - new Date() <= 0){
                 Message.off(div_msg_2)
-                fetch("https://start.topbingos.com.br")
+                if(this.calld){
+                    // this.called = false
+                    // fetch("https://start.topbingos.com.br")
+                }
+
+                console.log('carregou')
             }else{
                 Message.on(div_msg_2)
             }    
