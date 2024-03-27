@@ -137,12 +137,12 @@ const Control = {
         if(this.status == 3){
             if(new Date(this.time.startAt) - new Date() <= 0){
                 Message.off(div_msg_2)
-                if(this.calld){
-                    // this.called = false
-                    // fetch("https://start.topbingos.com.br")
+                if(this.called){
+                    this.called = false
+                    fetch("https://start.topbingos.com.br")
+                    console.log('carregou')
                 }
-
-                console.log('carregou')
+                // efeito_fade()
             }else{
                 Message.on(div_msg_2)
             }    

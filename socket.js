@@ -50,8 +50,13 @@ fetch('https://topbingos.com.br/data.php')
     Control.status = e.status
     // app.status = e.status s
 
+    if(e.status == 3){
+        Control.called = true
+    }
+
     if(e.status == 3 || e.status == 4){
         fullsocket()
+        Dialog.close(div_loading)
     }else{
         // Control.loading_off()
         div_invalid.removeAttribute('style')
