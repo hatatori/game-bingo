@@ -97,30 +97,37 @@ function fullsocket(){
 
     socket.addEventListener('message', e=>{
 
-        // function inverse(a){
-        //     //a = [1,2,3,4]
-        //     b = []
-        //     for(i=a.length-1;i>=0;i--){
-        //         b.push(a[i])
-        //     }
-        //     return b
-        // }
+        function inverse(a){
+            //a = [1,2,3,4]
+            try{
+                b = []
+                for(i=a.length-1;i>=0;i--){
+                    b.push(a[i])
+                }
+                return b
+            }catch(e){
+                return a
+            }
+        }
 
         const obj = JSON.parse(e.data)
         console.log(obj)
 
         // bolas_chamadas = obj.payload.drawnNumbers
         // const obj = {}
+
         bolas_chamadas = obj.payload.drawnNumbers
+        
         Marking.paintAllArray(bolas_chamadas)
 
         // Play.numbers(obj.payload.drawnNumbers)
+
 
         if(obj.action == "playerList"){
             // bolas_chamadas = obj.payload.drawnNumbers
             // Marking.paintAllArray(bolas_chamadas)
             Control.sound_ball = false
-            Play.numbers(obj.payload.drawnNumbers)
+            Play.numbers(inverse(obj.payload.drawnNumbers))
             
             // Control.sound_ball = true
             // Dialog.close(div_loading)
